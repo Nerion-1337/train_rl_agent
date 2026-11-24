@@ -1,4 +1,5 @@
 <p align="center">
+  <a href="https://github.com/Nerion-1337/train_rl_agent/actions/workflows/ci.yml"><img src="https://github.com/Nerion-1337/train_rl_agent/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <img src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white" alt="Python">
   <img src="https://img.shields.io/badge/uv-gestion%20des%20d%C3%A9pendances-DE5FE9?logo=uv&logoColor=white" alt="uv">
   <img src="https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white" alt="Docker">
