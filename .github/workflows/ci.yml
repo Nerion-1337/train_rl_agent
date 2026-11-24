@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lock:
+    name: Lockfile uv à jour
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv lock --check
+
+  notebooks:
+    name: Exécution des notebooks dans Docker
+    needs: lock
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/setup-buildx-action@v3
+
+      # Même image que docker-compose.yml (eagle1-autopilot), avec cache GitHub Actions
+      - name: Construire l'image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          load: true
+          tags: eagle1-autopilot:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      # Échoue si une cellule lève une exception
+      - name: Exécuter les exercices
+        run: >
+          docker compose run --rm --no-deps jupyter
+          uv run --no-sync jupyter nbconvert --to notebook --execute
+          --ExecutePreprocessor.timeout=1800 --output-dir executed 'notebooks/*.ipynb'
+
+      - name: Publier les notebooks exécutés et les modèles
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: notebooks-executes
+          path: |
+            executed/
+            models/
+          if-no-files-found: warn

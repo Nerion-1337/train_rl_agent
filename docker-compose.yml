@@ -1,0 +1,21 @@
+services:
+  jupyter:
+    build: .
+    image: eagle1-autopilot
+    env_file: .env
+    ports:
+      - "${JUPYTER_PORT:-8888}:8888"
+    volumes:
+      - .:/app            # code, notebooks, modèles et logs persistés sur l'hôte
+    command: >
+      uv run --no-sync jupyter lab --ip=0.0.0.0 --port=8888 --allow-root --no-browser
+      --IdentityProvider.token=${JUPYTER_TOKEN}
+
+  tensorboard:
+    image: eagle1-autopilot
+    depends_on: [jupyter]
+    ports:
+      - "${TENSORBOARD_PORT:-6006}:6006"
+    volumes:
+      - .:/app
+    command: uv run --no-sync tensorboard --logdir /app/logs --host 0.0.0.0 --port 6006

@@ -1,0 +1,30 @@
+[project]
+name = "eagle1-autopilot"
+version = "0.1.0"
+description = "Apprentissage par renforcement : exercices (CartPole, FrozenLake, DQN) puis pilote automatique LunarLander « Eagle-1 »."
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "gymnasium>=1.0",
+    "stable-baselines3>=2.4",
+    "torch>=2.4",
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "tensorboard",
+    "jupyterlab",
+    "nbconvert",
+    "ipykernel",
+]
+
+[tool.uv]
+package = false
+
+# Torch CPU uniquement : évite ~2 Go de dépendances CUDA dans l'image.
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }

@@ -1,0 +1,8 @@
+.venv
+.git
+logs
+models
+graphify-out
+**/__pycache__
+**/.ipynb_checkpoints
+build/
