@@ -10,6 +10,7 @@
   <img src="https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=white" alt="NumPy">
   <img src="https://img.shields.io/badge/Pandas-150458?logo=pandas&logoColor=white" alt="Pandas">
   <img src="https://img.shields.io/badge/Matplotlib-11557C" alt="Matplotlib">
+  <img src="https://img.shields.io/badge/Plotly-3D-3F4F75?logo=plotly&logoColor=white" alt="Plotly">
   <img src="https://img.shields.io/badge/TensorBoard-FF6F00?logo=tensorflow&logoColor=white" alt="TensorBoard">
 </p>
 
@@ -29,9 +30,9 @@ Tout s'exécute dans un **container Docker** ; les dépendances et le venv sont 
 
 | Notebook | Environnement | Ce qu'on apprend | Résultat |
 |---|---|---|---|
-| [exercice_1_cartpole_bases.ipynb](notebooks/exercice_1_cartpole_bases.ipynb) | CartPole-v1 | Espaces d'observation (`Box`) / d'action (`Discrete`), boucle `reset → step`, agent aléatoire sur 10 épisodes | Agent aléatoire : **26,5 ± 22,5** sur 10 épisodes (max 500) |
+| [exercice_1_cartpole_bases.ipynb](notebooks/exercice_1_cartpole_bases.ipynb) | CartPole-v1 | Espaces d'observation (`Box`) / d'action (`Discrete`), boucle `reset → step`, agent aléatoire sur 10 épisodes | Agent aléatoire : **22,7 ± 10,5** sur 10 épisodes (max 500) |
 | [exercice_2_qlearning_frozenlake.ipynb](notebooks/exercice_2_qlearning_frozenlake.ipynb) | FrozenLake-v1 (glissant) | Q-learning tabulaire : Q-table 16×4, epsilon-greedy, équation de Bellman, évaluation sans exploration | **66 %** de réussite sur 100 épisodes d'évaluation |
-| [exercice_3_dqn_cartpole.ipynb](notebooks/exercice_3_dqn_cartpole.ipynb) | CartPole-v1 | DQN manuel PyTorch (réseau, replay buffer, target network) puis DQN Stable-Baselines3 (défaut vs ajusté), sauvegarde `.zip` | DQN manuel ≈ 285 · SB3 défaut (25k pas) 22,5 · SB3 ajusté (50k pas) **500 ± 0** → `models/dqn_cartpole.zip` |
+| [exercice_3_dqn_cartpole.ipynb](notebooks/exercice_3_dqn_cartpole.ipynb) | CartPole-v1 | DQN manuel PyTorch (réseau, replay buffer, target network) puis DQN Stable-Baselines3 (défaut vs ajusté), sauvegarde `.zip` | DQN manuel ≈ 257 · SB3 défaut (25k pas) 22,5 · SB3 ajusté (50k pas) **500 ± 0** → `models/dqn_cartpole.zip` |
 | *mission (à venir)* | LunarLander-v3 | Baseline, optimisation d'hyperparamètres, vidéo, API FastAPI, GUI, dashboard | — |
 
 ---
@@ -45,7 +46,9 @@ train_rl_agent/
 ├── notebooks/                # Exercices 1-3 (+ notebook de la mission finale)
 │   ├── exercice_1_cartpole_bases.ipynb
 │   ├── exercice_2_qlearning_frozenlake.ipynb
-│   └── exercice_3_dqn_cartpole.ipynb
+│   ├── exercice_3_dqn_cartpole.ipynb
+│   └── rl_viz.py             # Aperçus visuels : GIF d'épisodes + graphiques 3D Plotly
+├── media/                    # GIF et graphiques 3D (.html) générés par les notebooks
 ├── models/                   # Modèles entraînés (.zip SB3) — ex. dqn_cartpole.zip
 ├── logs/                     # Logs TensorBoard (générés, ignorés par git)
 ├── build/graph_src/          # Code des notebooks exporté en .py + graphe graphify (généré)
@@ -177,11 +180,15 @@ flowchart LR
 docker compose build
 ```
 
-2. Lancer JupyterLab et TensorBoard :
+2. Lancer JupyterLab et TensorBoard en arrière-plan :
 
 ```powershell
-docker compose up
+docker compose up -d
 ```
+
+Les services ont la politique `restart: unless-stopped` : ils tournent en permanence et redémarrent
+automatiquement avec Docker, jusqu'à un `docker compose stop` / `down` explicite. Pour qu'ils reviennent
+aussi après un redémarrage du PC, activer dans Docker Desktop *Settings → General → Start Docker Desktop when you sign in*.
 
 - JupyterLab : <http://localhost:8888/lab?token=eagle1> (token défini dans `.env`)
 - TensorBoard : <http://localhost:6006>
@@ -204,7 +211,30 @@ docker compose run --rm --no-deps jupyter uv add <paquet>
 docker compose build
 ```
 
-Arrêter : `Ctrl+C` puis `docker compose down`.
+Arrêter : `docker compose down`.
+
+---
+
+## Aperçus visuels des expériences
+
+Chaque notebook se termine par une section **Aperçu visuel** (module [`notebooks/rl_viz.py`](notebooks/rl_viz.py)) :
+des animations GIF de l'agent et des graphiques **3D interactifs** Plotly, que l'on fait pivoter à la souris dans
+JupyterLab. Tout est aussi enregistré dans [`media/`](media/) ; les `.html` s'ouvrent dans n'importe quel navigateur.
+
+| CartPole — agent aléatoire | FrozenLake — Q-learning | CartPole — DQN entraîné |
+|:---:|:---:|:---:|
+| ![CartPole aléatoire](media/ex1_cartpole_aleatoire.gif) | ![FrozenLake](media/ex2_frozenlake_agent.gif) | ![CartPole DQN](media/ex3_cartpole_dqn.gif) |
+| Le bâton tombe en ~20 pas | L'agent contourne les trous jusqu'au cadeau | 500 pas sans tomber |
+
+| Graphique 3D | Ce qu'il montre |
+|---|---|
+| `ex1_trajectoires_3d.html` | 10 épisodes aléatoires dans l'espace (x, θ, θ̇) : les trajectoires divergent vite |
+| `ex2_valeurs_3d.html` | Surface V(s) sur la grille 4×4, colorée par l'action gloutonne |
+| `ex3_trajectoires_3d.html` | Trajectoires aléatoires vs DQN : l'agent entraîné reste confiné autour de θ = 0 |
+| `ex3_q_values_3d.html` | max Q(s, a) selon θ et θ̇, colorée par l'action : frontière de décision en diagonale |
+
+> GitHub n'affiche pas les graphiques Plotly dans les notebooks : ouvrez-les dans JupyterLab
+> (`http://localhost:8888`) ou ouvrez les fichiers `media/*.html` dans un navigateur.
 
 ---
 

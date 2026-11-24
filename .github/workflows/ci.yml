@@ -46,7 +46,7 @@ jobs:
           uv run --no-sync jupyter nbconvert --to notebook --execute
           --ExecutePreprocessor.timeout=1800 --output-dir executed 'notebooks/*.ipynb'
 
-      - name: Publier les notebooks exécutés et les modèles
+      - name: Publier les notebooks exécutés, les modèles et les visuels
         if: always()
         uses: actions/upload-artifact@v7
         with:
@@ -54,4 +54,5 @@ jobs:
           path: |
             executed/
             models/
+            media/
           if-no-files-found: warn

@@ -2,6 +2,7 @@ services:
   jupyter:
     build: .
     image: eagle1-autopilot
+    restart: unless-stopped   # tourne en permanence, redémarre avec Docker
     env_file: .env
     ports:
       - "${JUPYTER_PORT:-8888}:8888"
@@ -13,6 +14,7 @@ services:
 
   tensorboard:
     image: eagle1-autopilot
+    restart: unless-stopped
     depends_on: [jupyter]
     ports:
       - "${TENSORBOARD_PORT:-6006}:6006"

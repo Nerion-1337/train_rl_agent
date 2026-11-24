@@ -7,8 +7,7 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 ENV UV_PROJECT_ENVIRONMENT=/opt/venv \
     UV_LINK_MODE=copy \
     UV_COMPILE_BYTECODE=1 \
-    PATH="/opt/venv/bin:$PATH" \
-    MPLBACKEND=Agg
+    PATH="/opt/venv/bin:$PATH"
 
 WORKDIR /app
 

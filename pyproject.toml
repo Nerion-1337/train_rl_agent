@@ -5,12 +5,13 @@ description = "Apprentissage par renforcement : exercices (CartPole, FrozenLake,
 readme = "README.md"
 requires-python = ">=3.11,<3.12"
 dependencies = [
-    "gymnasium>=1.0",
+    "gymnasium[classic-control]>=1.0",  # inclut pygame : rendu des environnements (GIF)
     "stable-baselines3>=2.4",
     "torch>=2.4",
     "numpy",
     "pandas",
     "matplotlib",
+    "plotly",                            # graphiques 3D interactifs
     "tensorboard",
     "jupyterlab",
     "nbconvert",
