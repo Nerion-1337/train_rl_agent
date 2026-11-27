@@ -1,0 +1,15 @@
+dqn_buffer_50k     vent :   -33.3  succès 5%
+dqn_tuned          vent :    75.8  succès 38%
+ppo_gamma_0.999    vent :   100.7  succès 38%
+ppo_final_s2       vent :    99.5  succès 44%
+ppo_lr_1e-3        vent :   195.9  succès 72%
+ppo_final_s1       vent :   120.5  succès 61%
+ppo_final_s0       vent :   122.6  succès 56%
+ppo_ent_0.01       vent :   206.6  succès 76%
+ppo_gae_0.98       vent :   201.1  succès 77%
+dqn_baseline       vent :    30.8  succès 24%
+ppo_baseline       vent :   139.4  succès 56%
+dqn_target_250     vent :   -56.4  succès 6%
+ppo_epochs_4       vent :   113.8  succès 39%
+dqn_lr_6e-4        vent :   -35.2  succès 12%
+ppo_nsteps_1024    vent :   131.7  succès 45%

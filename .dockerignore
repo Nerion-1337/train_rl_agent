@@ -7,3 +7,4 @@ graphify-out
 **/.ipynb_checkpoints
 build/
 media/
+dist

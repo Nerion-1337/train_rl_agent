@@ -21,3 +21,45 @@ services:
     volumes:
       - .:/app
     command: uv run --no-sync tensorboard --logdir /app/logs --host 0.0.0.0 --port 6006
+
+  # --- Mission Eagle-1 : API (logique RL), GUI et tableau de bord (frontends) ---
+  api:
+    image: eagle1-autopilot
+    restart: unless-stopped
+    depends_on: [jupyter]
+    ports:
+      - "${API_PORT:-8000}:8000"
+    volumes:
+      - .:/app
+    command: uv run --no-sync uvicorn eagle1.api:app --host 0.0.0.0 --port 8000
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  gui:
+    image: eagle1-autopilot
+    restart: unless-stopped
+    depends_on:
+      api: {condition: service_healthy}
+    environment:
+      API_URL: http://api:8000
+    ports:
+      - "${GUI_PORT:-8501}:8501"
+    volumes:
+      - .:/app
+    command: uv run --no-sync streamlit run eagle1/gui.py --server.port 8501 --server.address 0.0.0.0 --server.headless true
+
+  dashboard:
+    image: eagle1-autopilot
+    restart: unless-stopped
+    depends_on:
+      api: {condition: service_healthy}
+    environment:
+      API_URL: http://api:8000
+    ports:
+      - "${DASHBOARD_PORT:-8502}:8502"
+    volumes:
+      - .:/app
+    command: uv run --no-sync streamlit run eagle1/dashboard.py --server.port 8502 --server.address 0.0.0.0 --server.headless true

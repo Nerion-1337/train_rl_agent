@@ -1,0 +1,332 @@
+{
+  ".github/workflows/ci.yml": {
+    "mtime": 1795797216.6148975,
+    "seen": 1795800732.095117,
+    "ast_hash": "813743d8ba6af443d77039fda33a29f9",
+    "semantic_hash": ""
+  },
+  "docker-compose.yml": {
+    "mtime": 1795797105.6550448,
+    "seen": 1795800732.095117,
+    "ast_hash": "dee9d946fce7f98226321dd0ca984138",
+    "semantic_hash": ""
+  },
+  "docs/build_report.py": {
+    "mtime": 1795800700.190239,
+    "seen": 1795800732.095117,
+    "ast_hash": "320e9f52cefe40f4319e51d9168ae656",
+    "semantic_hash": ""
+  },
+  "eagle1/__init__.py": {
+    "mtime": 1795796960.3069305,
+    "seen": 1795800732.095117,
+    "ast_hash": "637290021842d0fa4a37481aaeee771d",
+    "semantic_hash": ""
+  },
+  "eagle1/api.py": {
+    "mtime": 1795800017.6734526,
+    "seen": 1795800732.095117,
+    "ast_hash": "b03fe9422e10d7ea282b5520c45b8372",
+    "semantic_hash": ""
+  },
+  "eagle1/core.py": {
+    "mtime": 1795796931.990662,
+    "seen": 1795800732.095117,
+    "ast_hash": "dc4c721a8baef9dfa88a92d43f647c4e",
+    "semantic_hash": ""
+  },
+  "eagle1/dashboard.py": {
+    "mtime": 1795800113.6262653,
+    "seen": 1795800732.095117,
+    "ast_hash": "1088f3b56d37cebaed2436a60b305082",
+    "semantic_hash": ""
+  },
+  "eagle1/gui.py": {
+    "mtime": 1795797038.7446616,
+    "seen": 1795800732.095117,
+    "ast_hash": "cbe6bb13233c48b25cd7f38a55ac5b5b",
+    "semantic_hash": ""
+  },
+  "eagle1/package.py": {
+    "mtime": 1795800559.247135,
+    "seen": 1795800732.095117,
+    "ast_hash": "94c12907bfe483ee9ab45b17394ee222",
+    "semantic_hash": ""
+  },
+  "eagle1/train.py": {
+    "mtime": 1795799958.5147588,
+    "seen": 1795800732.095117,
+    "ast_hash": "acb862c784553a2a60fbe113320aad6c",
+    "semantic_hash": ""
+  },
+  "eagle1/video.py": {
+    "mtime": 1795800634.7296412,
+    "seen": 1795800732.095117,
+    "ast_hash": "1cbd41d10bad08aae0367654269ce62e",
+    "semantic_hash": ""
+  },
+  "models/eagle1_best.json": {
+    "mtime": 1795799831.5096202,
+    "seen": 1795800732.095117,
+    "ast_hash": "449be8d144cab046e15a23225d01e4a7",
+    "semantic_hash": ""
+  },
+  "notebooks/rl_viz.py": {
+    "mtime": 1795532157.8452954,
+    "seen": 1795800732.095117,
+    "ast_hash": "df87820859b87c7fd61dab351d203703",
+    "semantic_hash": ""
+  },
+  "pyproject.toml": {
+    "mtime": 1795800163.2939167,
+    "seen": 1795800732.095117,
+    "ast_hash": "c91394f6f807aad52ead141785f7f14f",
+    "semantic_hash": ""
+  },
+  "results/experiments/dqn_baseline.json": {
+    "mtime": 1795800020.3507667,
+    "seen": 1795800732.095117,
+    "ast_hash": "961631770fdf6a21c4edb68cc353191d",
+    "semantic_hash": ""
+  },
+  "results/experiments/dqn_buffer_50k.json": {
+    "mtime": 1795799986.0382576,
+    "seen": 1795800732.095117,
+    "ast_hash": "07b12c66bc5af1f1e44fab597cf4ad25",
+    "semantic_hash": ""
+  },
+  "results/experiments/dqn_lr_6e-4.json": {
+    "mtime": 1795800038.2546473,
+    "seen": 1795800732.095117,
+    "ast_hash": "fe3fe56af46b3be5e97ac7a2de707488",
+    "semantic_hash": ""
+  },
+  "results/experiments/dqn_target_250.json": {
+    "mtime": 1795800036.158006,
+    "seen": 1795800732.095117,
+    "ast_hash": "3766b67059f80721ee38b6ebf396529f",
+    "semantic_hash": ""
+  },
+  "results/experiments/dqn_tuned.json": {
+    "mtime": 1795799992.3294375,
+    "seen": 1795800732.095117,
+    "ast_hash": "a6eb092d4f795077459d119bab28189c",
+    "semantic_hash": ""
+  },
+  "results/experiments/ppo_baseline.json": {
+    "mtime": 1795800021.867527,
+    "seen": 1795800732.095117,
+    "ast_hash": "3b5c3c597a47acd152d54dfcfbe126b5",
+    "semantic_hash": ""
+  },
+  "results/experiments/ppo_ent_0.01.json": {
+    "mtime": 1795800011.7895534,
+    "seen": 1795800732.095117,
+    "ast_hash": "903fd9886dc0a17ce9e008f18ab6124f",
+    "semantic_hash": ""
+  },
+  "results/experiments/ppo_epochs_4.json": {
+    "mtime": 1795800036.417981,
+    "seen": 1795800732.095117,
+    "ast_hash": "c0bca8bf11627be915feb5cfa1177165",
+    "semantic_hash": ""
+  },
+  "results/experiments/ppo_final_s0.json": {
+    "mtime": 1795800005.5047705,
+    "seen": 1795800732.095117,
+    "ast_hash": "d8ac09413179874811f136a3aa2e9e7c",
+    "semantic_hash": ""
+  },
+  "results/experiments/ppo_final_s1.json": {
+    "mtime": 1795800003.535784,
+    "seen": 1795800732.095117,
+    "ast_hash": "95d3fe0838ffcc229faf68e7576f87ad",
+    "semantic_hash": ""
+  },
+  "results/experiments/ppo_final_s2.json": {
+    "mtime": 1795800002.8352633,
+    "seen": 1795800732.095117,
+    "ast_hash": "cf9a9dd264ead3ee841ff825d511144e",
+    "semantic_hash": ""
+  },
+  "results/experiments/ppo_gae_0.98.json": {
+    "mtime": 1795800014.3293526,
+    "seen": 1795800732.095117,
+    "ast_hash": "a1cec3cf49fd0a8e6564f331e8c4987c",
+    "semantic_hash": ""
+  },
+  "results/experiments/ppo_gamma_0.999.json": {
+    "mtime": 1795800002.0532064,
+    "seen": 1795800732.095117,
+    "ast_hash": "11e45286a828990e09dcb9dc3c75853c",
+    "semantic_hash": ""
+  },
+  "results/experiments/ppo_lr_1e-3.json": {
+    "mtime": 1795800003.485394,
+    "seen": 1795800732.095117,
+    "ast_hash": "7a942750834ad839bb5146bead26a2bf",
+    "semantic_hash": ""
+  },
+  "results/experiments/ppo_nsteps_1024.json": {
+    "mtime": 1795800038.8952777,
+    "seen": 1795800732.095117,
+    "ast_hash": "6e608429e4f6c9d715c5035273415b37",
+    "semantic_hash": ""
+  },
+  "results/final_evaluation.json": {
+    "mtime": 1795800512.555365,
+    "seen": 1795800732.095117,
+    "ast_hash": "6163605dd54e94acb732f2a9cdd95590",
+    "semantic_hash": ""
+  },
+  "tests/test_api.py": {
+    "mtime": 1795797097.6137223,
+    "seen": 1795800732.095117,
+    "ast_hash": "281c40e66bdde1ba45561ecb37e5467e",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1795800625.471972,
+    "seen": 1795800732.095117,
+    "ast_hash": "d884c2a308ddc5cab8e64e5ae71217c5",
+    "semantic_hash": ""
+  },
+  "contexte/exercice_1.md": {
+    "mtime": 1795528520.9591327,
+    "seen": 1795800732.095117,
+    "ast_hash": "7d810d34b029d42e64bca08723d08ec1",
+    "semantic_hash": ""
+  },
+  "contexte/exercice_2.md": {
+    "mtime": 1795528544.3699553,
+    "seen": 1795800732.095117,
+    "ast_hash": "cc055ae15e9d0c747b4baec1fd43d350",
+    "semantic_hash": ""
+  },
+  "contexte/exercice_3.md": {
+    "mtime": 1795528590.4577072,
+    "seen": 1795800732.095117,
+    "ast_hash": "37cc67788a24403eb933361765ae4ab8",
+    "semantic_hash": ""
+  },
+  "contexte/livrable.md": {
+    "mtime": 1795528636.6218462,
+    "seen": 1795800732.095117,
+    "ast_hash": "14d67716460a875c41f6d721f82a05c9",
+    "semantic_hash": ""
+  },
+  "contexte/mission.md": {
+    "mtime": 1795528615.7192807,
+    "seen": 1795800732.095117,
+    "ast_hash": "25f1b1c84b19ee1bd9d69e3076d154f3",
+    "semantic_hash": ""
+  },
+  "media/ex1_trajectoires_3d.html": {
+    "mtime": 1795532648.2619388,
+    "seen": 1795800732.095117,
+    "ast_hash": "0dcd625d1e8b4923596c22d1ec7a10e2",
+    "semantic_hash": ""
+  },
+  "media/ex2_valeurs_3d.html": {
+    "mtime": 1795532660.3148167,
+    "seen": 1795800732.095117,
+    "ast_hash": "63dd407d270b61058fc87db360d8ecce",
+    "semantic_hash": ""
+  },
+  "media/ex3_q_values_3d.html": {
+    "mtime": 1795532961.973056,
+    "seen": 1795800732.095117,
+    "ast_hash": "f187043ce5f84ec412ba1e9cde6d6028",
+    "semantic_hash": ""
+  },
+  "media/ex3_trajectoires_3d.html": {
+    "mtime": 1795532961.9028814,
+    "seen": 1795800732.095117,
+    "ast_hash": "84bd57fe3fe828a6f51bf970e4aea675",
+    "semantic_hash": ""
+  },
+  "contexte/Brief+de+Mission+_+Pilote+Automatique+pour+l'atterrissage+d'Eagle-1.pdf": {
+    "mtime": 1795528693.5016158,
+    "seen": 1795800732.095117,
+    "ast_hash": "cffdc68435a3e8c134cb9f30bcbdc5f8",
+    "semantic_hash": ""
+  },
+  "docs/rapport_eagle1.pdf": {
+    "mtime": 1795800664.469401,
+    "seen": 1795800732.095117,
+    "ast_hash": "9c33f03df127ca49d6adf6488bdfff76",
+    "semantic_hash": ""
+  },
+  "docs/figures/cartpole.png": {
+    "mtime": 1795800663.590239,
+    "seen": 1795800732.095117,
+    "ast_hash": "7be3c6d541377430eb0b22a5c274e433",
+    "semantic_hash": ""
+  },
+  "docs/figures/courbes.png": {
+    "mtime": 1795800663.1828902,
+    "seen": 1795800732.095117,
+    "ast_hash": "d7f19082237ccff36b522f86ed55aa08",
+    "semantic_hash": ""
+  },
+  "docs/figures/evaluation_finale.png": {
+    "mtime": 1795800663.3794637,
+    "seen": 1795800732.095117,
+    "ast_hash": "1098a0ff54ad914c0dc5c203b759d922",
+    "semantic_hash": ""
+  },
+  "docs/figures/experiences.png": {
+    "mtime": 1795800662.8805752,
+    "seen": 1795800732.095117,
+    "ast_hash": "9a7cace7f77b391ff4dbcb765fd04116",
+    "semantic_hash": ""
+  },
+  "docs/figures/frozenlake.png": {
+    "mtime": 1795800663.6087613,
+    "seen": 1795800732.095117,
+    "ast_hash": "275ccba3d909b7cbf9aa2542042c499b",
+    "semantic_hash": ""
+  },
+  "docs/figures/lunar.png": {
+    "mtime": 1795800663.9857762,
+    "seen": 1795800732.095117,
+    "ast_hash": "af2d0daa4c1302d93e10073fcbe81274",
+    "semantic_hash": ""
+  },
+  "docs/figures/robustesse.png": {
+    "mtime": 1795800663.5540621,
+    "seen": 1795800732.095117,
+    "ast_hash": "b2c10d5e43f0681c6c7a5ea2c9f892de",
+    "semantic_hash": ""
+  },
+  "media/eagle1_atterrissage.gif": {
+    "mtime": 1795800640.454988,
+    "seen": 1795800732.095117,
+    "ast_hash": "b13946d38c3d2c6f392ac0e83de3375e",
+    "semantic_hash": ""
+  },
+  "media/ex1_cartpole_aleatoire.gif": {
+    "mtime": 1795532648.0845673,
+    "seen": 1795800732.095117,
+    "ast_hash": "1e0ec50bd99f11e019da3a8adba5d288",
+    "semantic_hash": ""
+  },
+  "media/ex2_frozenlake_agent.gif": {
+    "mtime": 1795532660.1245651,
+    "seen": 1795800732.095117,
+    "ast_hash": "7a1733892174bd853c659a69bf5669d2",
+    "semantic_hash": ""
+  },
+  "media/ex3_cartpole_dqn.gif": {
+    "mtime": 1795532961.830301,
+    "seen": 1795800732.095117,
+    "ast_hash": "4285d6ee07f1178c31277e7b9056ea7f",
+    "semantic_hash": ""
+  },
+  "media/eagle1_atterrissage.mp4": {
+    "mtime": 1795799840.4866397,
+    "seen": 1795800732.095117,
+    "ast_hash": "13d4a91c42258c2cdfcb0b91eb586940",
+    "semantic_hash": ""
+  }
+}

@@ -5,13 +5,21 @@ description = "Apprentissage par renforcement : exercices (CartPole, FrozenLake,
 readme = "README.md"
 requires-python = ">=3.11,<3.12"
 dependencies = [
-    "gymnasium[classic-control]>=1.0",  # inclut pygame : rendu des environnements (GIF)
+    "gymnasium[classic-control,box2d]>=1.0",  # pygame (rendu) + Box2D (LunarLander)
     "stable-baselines3>=2.4",
     "torch>=2.4",
     "numpy",
     "pandas",
     "matplotlib",
     "plotly",                            # graphiques 3D interactifs
+    "moviepy",                           # vidéo mp4 (RecordVideo)
+    "fastapi",                           # API du pilote automatique
+    "uvicorn[standard]",
+    "streamlit>=1.57",                   # GUI et tableau de bord
+    "requests",
+    "pytest",
+    "httpx",                             # client de test FastAPI
+    "reportlab",                         # rapport PDF (docs/)
     "tensorboard",
     "jupyterlab",
     "nbconvert",
@@ -29,3 +37,7 @@ explicit = true
 
 [tool.uv.sources]
 torch = { index = "pytorch-cpu" }
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

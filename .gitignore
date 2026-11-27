@@ -4,3 +4,6 @@ __pycache__/
 logs/
 build/
 executed/
+dist/
+results/notebook_demo.db
+graphify-out/cache/

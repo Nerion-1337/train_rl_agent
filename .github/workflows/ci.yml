@@ -20,7 +20,7 @@ jobs:
       - run: uv lock --check
 
   notebooks:
-    name: Exécution des notebooks dans Docker
+    name: Tests et notebooks dans Docker
     needs: lock
     runs-on: ubuntu-latest
     timeout-minutes: 45
@@ -39,8 +39,12 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+      # Tests de l'API (dont le critère du cahier des charges : moyenne ≥ 200)
+      - name: Tests de l'API
+        run: docker compose run --rm --no-deps jupyter uv run --no-sync pytest -q
+
       # Échoue si une cellule lève une exception
-      - name: Exécuter les exercices
+      - name: Exécuter les notebooks (exercices + mission)
         run: >
           docker compose run --rm --no-deps jupyter
           uv run --no-sync jupyter nbconvert --to notebook --execute
